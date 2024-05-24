@@ -7,7 +7,7 @@ module.exports = merge(common, {
   devServer: {
     open: {
       app: {
-        name: 'Google Chrome',
+        name: 'Brave Browser',
       },
     },
     static: './src',
