@@ -3,9 +3,11 @@ import { WEATHER_API_KEY } from "./keys.js";
 
 const cityName = document.getElementById("input-city");
 const btnGetTemp = document.getElementById("btn-get-temp");
-const cityText = document.querySelector(".city-text");
+const cityText = document.querySelector(".city-name");
 const cityTemp = document.querySelector(".city-temp");
-
+const tempIcon = document.querySelector(".temp-icon");
+const humidity = document.querySelector(".humidity");
+clearCityData();
 btnGetTemp.addEventListener("click", displayData);
 cityName.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
@@ -36,13 +38,22 @@ function displayData() {
   data
     .then((cityData) => {
       cityText.innerText = `${cityData.name}, ${cityData.country}`;
-      cityTemp.innerText = `Temp: ${cityData.tempC}`;
+      cityTemp.innerText = `${cityData.condText}: ${cityData.tempC}`;
+      tempIcon.style.display = "block";
+      tempIcon.src = cityData.condIcon;
+      humidity.innerText = `Humidity: ${cityData.humidity} `;
     })
     .catch((err) => {
       cityText.innerText = err.message;
+      clearCityData();
     });
 
   cityName.value = "";
+}
+
+function clearCityData() {
+  tempIcon.style.display = "none";
+  cityTemp.innerText = tempIcon.src = humidity.innerText = "";
 }
 
 async function getData(city) {
@@ -56,21 +67,25 @@ async function getData(city) {
 
     if (!data?.ok) {
       if (data.status === 400) {
-        throw new Error("city name is not valid");
+        throw new Error("💥City name is not valid💥");
       } else {
-        throw new Error("feild to fetch the data");
+        throw new Error("💥Feild to fetch the data💥");
       }
     }
 
     const cityData = await data.json();
     const { name, country } = cityData.location;
-    const { temp_c: tempC, temp_f: tempF } = cityData.current;
+    const { temp_c: tempC, temp_f: tempF, humidity } = cityData.current;
+    const { text: condText, icon: condIcon } = cityData.current.condition;
 
     return {
       name,
       country,
       tempC,
       tempF,
+      condIcon,
+      condText,
+      humidity,
     };
   } catch (err) {
     throw err;
