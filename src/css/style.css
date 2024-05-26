@@ -18,4 +18,78 @@ html {
 
 body {
   font-family: "Open Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  margin-top: 4rem;
+  padding: 2rem 4rem;
+  background-color: #eee;
+  height: 300px;
+  border-radius: 2px;
+}
+
+.heading-primary {
+  margin-bottom: 1.8rem;
+  color: #111;
+}
+.search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all 0.3s;
+  padding-right: 1rem;
+}
+
+.search:focus-within {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.input {
+  font-family: inherit;
+  font-size: 1.4rem;
+  color: #333;
+  padding: 0.6rem 2rem 0.6rem 1rem;
+  border: none;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* For Mozilla Firefox */
+input[type="search"]::-moz-search-cancel-button {
+  display: none;
+}
+
+/* For Internet Explorer and Edge (before Chromium-based Edge) */
+input[type="search"]::-ms-clear {
+  display: none;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.icon {
+  height: 2rem;
+  width: 2rem;
+  fill: #333;
 }
