@@ -4,7 +4,7 @@ Weather app
 
 [![Stand With Palestine](https://raw.githubusercontent.com/TheBSD/StandWithPalestine/main/banner-no-action.svg)](https://TheBSD.github.io/StandWithPalestine/)
 
-[![demo](./src/images/temp-demo.jpg)](https://gazzaar/github.io/tempteller)
+[![demo](./src/images/temp-demo.jpg)](https://gazzaar.github.io/tempteller)
 
 ## Features
 
@@ -14,4 +14,4 @@ Weather app
 ### Acknowledgement
 
 - This project was to practice my skills on async await and promises in javascript
-  and also working with APIs.. ![TOP](https://www.theodinproject.com/lessons/node-path-javascript-weather-app)
+  and also working with APIs.. [TOP](https://www.theodinproject.com/lessons/node-path-javascript-weather-app)
